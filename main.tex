@@ -1,0 +1,30 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{hyperref}
+
+\title{Collatz Writing}
+\author{Eivind Magnus Hvidevold}
+\date{August 2024}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+
+I want to calculate. The calculations are of arithmetic. I will shortly provide a list of arithmetical operations.
+They are: "addition", "subtraction", "multiplication" and "division". I think I will choose the long form of the arithmetical operations, such as in \href{https://en.wikipedia.org/wiki/Long_division}{long division}.
+
+I would like to extend the base arithmetic operations to any base. Furthermore, I would like to extend the base arithmetic operations to a more abstract numerical integer representation than any base. Perhaps it will be based on bucket multipliers, which are based on powers of the base that the digits are multiplied with.  An example of an integer is 1239, which means 1 * 1000 + 2 * 100 + 30 * 10 + 9 * 1.
+
+This raises a question. How do I decide the range of representable integers, if it is not a simple base structure of multipliers. How do I make sure that all integers are representable? Well, it's trial and error with different numerical representations and abstractions over these while proceeding to look for a sufficiently general pattern of numerical integer representation to have an impact on the $3n + 1$ problem.
+
+I choose python3 for my programming. How should I represent the integer numbers? Should I allow fractional numbers? If I don't already know whether I want to allow fractions, I should abstract over the decision and make a class that's either easily modifiable or extensible in some ways. I think it will be good in any case to abstract the maximum possible, while entertaining the reader to follow through from concrete examples to more abstract ideas of numerical integer and fraction representations.
+
+I should refresh my mind on operator overloading in python3. That way I can think better and prepare about the subject matter at hand. The following document should suffice: \href{https://docs.python.org/3/reference/datamodel.html#special-method-names}{Python3 Special Method Names},
+linked from \href{https://stackoverflow.com/questions/2400635/comprehensive-guide-to-operator-overloading-in-python}{Stack Overflow Question}. 3.3.8. Emulating numeric types is most relevant.
+
+Is it sufficient to represent a number by a list of digits and an "potentially infinite" list of base multipliers? Two things need to be specified, the set of possible digits (and their numerical value) and a function from the integer position of the digit in a left-right string, such as "$1301324532$", where it is assumed that the rightmost digit is multiplied by $10^0 = 1$, the second rightmost digit by $3$ and the leftmost digit by $10^9$.
+
+
+\end{document}
