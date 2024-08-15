@@ -10,6 +10,18 @@
 \usepackage[most]{tcolorbox}
 \tcbuselibrary{minted} % tcolorbox minted library, required to use the "minted" tcb listing engine (this library is not loaded by the option [most])
 \usepackage{minted} % Allows input of raw code, such as Python code
+\usemintedstyle{one-dark}
+\setminted[python]{bgcolor=gray!40!black, linenos}
+%\usemintedstyle{one-dark}{colback=gray!40!black,colframe=blue}
+%\usemintedstyle{colorful}
+
+%\usepackage{pythontex}
+% https://chatgpt.com/c/cabd51ce-b71f-4919-8846-7ee554886474
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+
+%\usepackage{pythonhighlight}
+
 \usepackage[colorlinks]{hyperref} % ALWAYS load this package LAST
 
 % Custom tcolorbox style for Python code (not the code or the box it appears in, just the options for the box)
@@ -121,3 +133,38 @@
 }
 % Adapted from https://tex.stackexchange.com/questions/483953/how-to-add-new-macros-like-author-without-editing-latex-ltx?noredirect=1&lq=1
 \makeatother
+
+\newmintedfile[pythoncode3]{python}{
+bgcolor=mintedbackground,
+fontfamily=tt,
+linenos=true,
+numberblanklines=true,
+numbersep=5pt,
+gobble=0,
+frame=leftline,
+framerule=0.4pt,
+framesep=2mm,
+funcnamehighlighting=true,
+tabsize=4,
+obeytabs=false,
+mathescape=false
+samepage=false, %with this setting you can force the list to appear on the same page
+showspaces=false,
+showtabs =false,
+texcl=false,
+}
+
+% Define a custom tcolorbox for Python code
+\newtcblisting{pythoncodeA}[2][]{%
+  colback=gray!40!black, % Background color
+  colframe=blue,         % Frame color
+  listing only,
+  listing options={%
+    language=python,     % Set the language to Python
+    style=one-dark,      % Apply a Pygments style (if available)
+  },
+  title=#2,              % Title of the code block
+  #1                     % Additional options (if any)
+}
+
+%\usemintedstyle{(style=one-dark){colback=gray!40!black,colframe=blue}[test.py]
