@@ -9,7 +9,9 @@
 %\usepackage[a4paper,top=0.5in,bottom=0.2in,left=0.5in,right=0.5in,footskip=0.3in,includefoot]{geometry}
 \usepackage[most]{tcolorbox}
 \tcbuselibrary{minted} % tcolorbox minted library, required to use the "minted" tcb listing engine (this library is not loaded by the option [most])
-\usepackage{minted} % Allows input of raw code, such as Python code
+%\usepackage{minted} % Allows input of raw code, such as Python code
+%\usepackage{caption}
+\usepackage{minted}
 \usemintedstyle{one-dark}
 \setminted[python]{bgcolor=gray!40!black, linenos}
 %\usemintedstyle{one-dark}{colback=gray!40!black,colframe=blue}
@@ -19,6 +21,8 @@
 % https://chatgpt.com/c/cabd51ce-b71f-4919-8846-7ee554886474
 \usepackage{xcolor}
 \usepackage{tcolorbox}
+
+\usepackage{catchfile}
 
 %\usepackage{pythonhighlight}
 
@@ -151,7 +155,7 @@ mathescape=false
 samepage=false, %with this setting you can force the list to appear on the same page
 showspaces=false,
 showtabs =false,
-texcl=false,
+texcl=false
 }
 
 % Define a custom tcolorbox for Python code
@@ -167,4 +171,4 @@ texcl=false,
   #1                     % Additional options (if any)
 }
 
-%\usemintedstyle{(style=one-dark){colback=gray!40!black,colframe=blue}[test.py]
+\newcommand{\py}[2]{\input{|python include.py '#1' '#2'}}
